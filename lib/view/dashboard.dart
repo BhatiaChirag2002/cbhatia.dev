@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/utils/colors.dart';
 import 'package:portfolio/utils/size.dart';
 import 'package:portfolio/utils/text_style.dart';
+//import 'package:portfolio/view/about.dart';
 import 'package:portfolio/view/home.dart';
 import 'package:portfolio/widgets/dashboard_button.dart';
 import 'package:portfolio/widgets/logo.dart';
@@ -66,6 +67,7 @@ class _DashboardState extends State<Dashboard> {
           ),
           const Spacer(),
           dashboardButton('Home', 0),
+          //  dashboardButton('About', 1),
         ],
       ),
     );
@@ -111,6 +113,10 @@ class _DashboardState extends State<Dashboard> {
         const SizedBox(
           height: 22.0,
         ),
+        // dashboardButton('About', 1),
+        // const SizedBox(
+        //   height: 22.0,
+        // ),
         DashboardCloseButton(
             label: 'Close',
             icon: Icons.close,
@@ -151,6 +157,8 @@ class _DashboardState extends State<Dashboard> {
     switch (index) {
       case 0:
         return const HomePage();
+      // case 1:
+      //   return const AboutPage();
       default:
         return const HomePage();
     }

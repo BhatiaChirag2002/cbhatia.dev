@@ -38,6 +38,9 @@ dependencies:
   get: ^4.6.6
   google_fonts: ^6.1.0
   scrollable_positioned_list: ^0.3.8
+  lottie: ^3.0.0
+  animated_text_kit: ^4.2.2
+
 
 dev_dependencies:
   flutter_test:
@@ -93,7 +96,18 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
   assets:
     - assets/background/
+    - assets/images/
+    - assets/skills/
   fonts:
     - family: MyFlutterApp
       fonts:
         - asset: assets/fonts/MyFlutterApp.ttf
+    - family: Caveat
+      fonts:
+        - asset: assets/fonts/Caveat-VariableFont_wght.ttf
+    - family: Salsa
+      fonts:
+        - asset: assets/fonts/Salsa-Regular.ttf
+    - family: Diphylleia
+      fonts:
+        - asset: assets/fonts/Diphylleia-Regular.ttf
