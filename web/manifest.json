@@ -1,11 +1,11 @@
 {
-    "name": "portfolio",
-    "short_name": "portfolio",
+    "name": "Chirag Bhatia Portfolio",
+    "short_name": "Chirag Bhatia",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Passionate Flutter developer showcasing creative projects, with expertise in mobile app development. Explore my innovative coding journey.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
