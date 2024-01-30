@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:portfolio/utils/colors.dart';
+import 'package:portfolio/utils/size.dart';
 import 'package:portfolio/utils/text_style.dart';
 
 String greeting() {
@@ -24,11 +26,18 @@ class Greeting extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-        child: Text(
-      greeting(),
-      style:
-          CustomTextStyle.salsa(fontSize: fontSize, color: CustomColors.white),
-    ));
+    return Row(
+      children: [
+        Text(
+          greeting(),
+          style: CustomTextStyle.salsa(
+              fontSize: fontSize, color: CustomColors.white),
+        ),
+        SizedBox(
+            height: fontSize + w! * 0.01,
+            width: fontSize + w! * 0.02,
+            child: Lottie.asset('assets/jsons/hi.json')),
+      ],
+    );
   }
 }

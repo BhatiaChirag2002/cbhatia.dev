@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/utils/colors.dart';
 
 class CustomTextStyle {
   static TextStyle caveat({required double fontSize, required Color color}) {
@@ -22,9 +23,10 @@ class CustomTextStyle {
 
   static TextStyle salsa({required double fontSize, required Color color}) {
     return TextStyle(
+        letterSpacing: 1.5,
         fontFamily: 'Salsa',
         fontSize: fontSize,
-        fontWeight: FontWeight.w500,
-        color: color);
+        fontWeight: FontWeight.w400,
+        color: CustomColors.white);
   }
 }

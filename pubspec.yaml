@@ -98,6 +98,7 @@ flutter:
     - assets/background/
     - assets/images/
     - assets/skills/
+    - assets/jsons/
   fonts:
     - family: MyFlutterApp
       fonts:
