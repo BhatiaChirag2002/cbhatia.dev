@@ -54,6 +54,7 @@ class Footer extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(
                     vertical: 10, horizontal: 10),
                 child: InkWell(
+                  onTap: onTap,
                   child: SizedBox(
                     child: Row(
                       children: [
