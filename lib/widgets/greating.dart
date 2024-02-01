@@ -34,8 +34,8 @@ class Greeting extends StatelessWidget {
               fontSize: fontSize, color: CustomColors.white),
         ),
         SizedBox(
-            height: fontSize + w! * 0.01,
-            width: fontSize + w! * 0.02,
+            height: fontSize + mw! * 0.01,
+            width: fontSize + mw! * 0.02,
             child: Lottie.asset('assets/jsons/hi.json')),
       ],
     );

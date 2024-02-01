@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class HomeImageAnimation extends StatefulWidget {
@@ -25,10 +24,10 @@ class _HomeImageAnimationState extends State<HomeImageAnimation>
   void initState() {
     super.initState();
     _controller =
-    AnimationController(vsync: this, duration: const Duration(seconds: 1))
-      ..repeat(reverse: true);
+        AnimationController(vsync: this, duration: const Duration(seconds: 1))
+          ..repeat(reverse: true);
 
-    _animation = Tween(begin: const Offset(0,0), end: const Offset(0.1, 0.1))
+    _animation = Tween(begin: const Offset(0, 0), end: const Offset(0.1, 0.1))
         .animate(_controller);
   }
 
@@ -36,9 +35,7 @@ class _HomeImageAnimationState extends State<HomeImageAnimation>
   Widget build(BuildContext context) {
     return SlideTransition(
       position: _animation,
-      child: Image.asset(
-        'assets/images/photo1.png'
-      ),
+      child: Image.asset('assets/images/photo1.png'),
     );
   }
 }

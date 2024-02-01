@@ -18,7 +18,7 @@ class LogoAndName extends StatelessWidget {
         children: [
           Icon(
             MyFlutterApp.logo,
-            color: CustomColors.highlight,
+            color: CustomColors.yellow,
             size: 18,
           ),
           const SizedBox(
@@ -28,7 +28,7 @@ class LogoAndName extends StatelessWidget {
             'Chirag Bhatia',
             style: CustomTextStyle.caveat(
               fontSize: 20,
-              color: CustomColors.highlight,
+              color: CustomColors.yellow,
             ),
           )
         ],

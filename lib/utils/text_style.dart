@@ -29,4 +29,24 @@ class CustomTextStyle {
         fontWeight: FontWeight.w400,
         color: CustomColors.white);
   }
+
+  static TextStyle ptSans({required double fontSize, required Color color}) {
+    return TextStyle(
+      fontFamily: 'PTSans',
+      fontSize: fontSize,
+      fontWeight: FontWeight.w800,
+      color: color,
+      letterSpacing: 1,
+    );
+  }
+
+  static TextStyle monomaniacOne(
+      {required double fontSize, required Color color}) {
+    return TextStyle(
+      fontFamily: 'MonomaniacOne',
+      fontSize: fontSize,
+      fontWeight: FontWeight.bold,
+      color: color,
+    );
+  }
 }

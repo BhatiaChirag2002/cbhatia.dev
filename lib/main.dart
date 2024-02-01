@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:portfolio/view/dashboard.dart';
 
 void main() {
@@ -11,7 +10,7 @@ class MyWebPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Chirag Bhatia Portfolio',
       home: Dashboard(),

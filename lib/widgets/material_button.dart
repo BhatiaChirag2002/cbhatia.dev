@@ -18,8 +18,7 @@ class MaterialButtonWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
       child: MaterialButton(
         onPressed: onTap,
-        color: CustomColors.highlight,
-        hoverColor: CustomColors.hoverColor,
+        color: CustomColors.yellow,
         padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 18),
         shape: OutlineInputBorder(borderRadius: BorderRadius.circular(40)),
         child: Row(

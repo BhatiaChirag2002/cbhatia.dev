@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/utils/colors.dart';
 import 'package:portfolio/utils/size.dart';
 import 'package:portfolio/utils/text_style.dart';
-//import 'package:portfolio/view/about.dart';
+import 'package:portfolio/view/about.dart';
+import 'package:portfolio/view/contact.dart';
 import 'package:portfolio/view/home.dart';
 import 'package:portfolio/widgets/dashboard_button.dart';
 import 'package:portfolio/widgets/logo.dart';
@@ -23,8 +24,8 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
-    h = MediaQuery.sizeOf(context).height;
-    w = MediaQuery.sizeOf(context).width;
+    mh = MediaQuery.sizeOf(context).height;
+    mw = MediaQuery.sizeOf(context).width;
     return LayoutBuilder(builder: (context, constraints) {
       return Scaffold(
         key: scaffoldkey,
@@ -39,7 +40,7 @@ class _DashboardState extends State<Dashboard> {
               mobile(),
             Expanded(
               child: ScrollablePositionedList.builder(
-                itemCount: 1,
+                itemCount: 3,
                 itemScrollController: itemScrollController,
                 itemPositionsListener: itemPositionsListener,
                 itemBuilder: (context, index) {
@@ -57,7 +58,7 @@ class _DashboardState extends State<Dashboard> {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 20),
       width: double.maxFinite,
-      height: h! * 0.07,
+      height: mh! * 0.07,
       child: Row(
         children: [
           LogoAndName(
@@ -67,7 +68,8 @@ class _DashboardState extends State<Dashboard> {
           ),
           const Spacer(),
           dashboardButton('Home', 0),
-          //  dashboardButton('About', 1),
+          dashboardButton('About', 1),
+          dashboardButton('Contact', 2),
         ],
       ),
     );
@@ -77,7 +79,7 @@ class _DashboardState extends State<Dashboard> {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 10),
       width: double.maxFinite,
-      height: h! * 0.07,
+      height: mh! * 0.07,
       child: Row(
         children: [
           LogoAndName(
@@ -113,10 +115,14 @@ class _DashboardState extends State<Dashboard> {
         const SizedBox(
           height: 22.0,
         ),
-        // dashboardButton('About', 1),
-        // const SizedBox(
-        //   height: 22.0,
-        // ),
+        dashboardButton('About', 1),
+        const SizedBox(
+          height: 22.0,
+        ),
+        dashboardButton('Contact', 2),
+        const SizedBox(
+          height: 22.0,
+        ),
         DashboardCloseButton(
             label: 'Close',
             icon: Icons.close,
@@ -157,8 +163,13 @@ class _DashboardState extends State<Dashboard> {
     switch (index) {
       case 0:
         return const HomePage();
-      // case 1:
-      //   return const AboutPage();
+      case 1:
+        return const AboutPage();
+      case 2:
+        return ContactPage(onTap: (){
+          itemScrollController.jumpTo(index: 0);
+        },);
+
       default:
         return const HomePage();
     }

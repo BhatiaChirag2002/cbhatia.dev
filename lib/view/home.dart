@@ -19,8 +19,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
-      if (constraints.maxWidth >= minDesktopWidth) {
-        // for desktop screen size
+      mh = MediaQuery.sizeOf(context).height;
+      mw = MediaQuery.sizeOf(context).width;
+      cw = constraints.maxWidth;
+
+      ///******************/ for Desktop screen size******************************
+      if (cw! >= minDesktopWidth) {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 0.1),
           child: Container(
@@ -37,11 +41,14 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                // for animated image
                 const SizedBox(
                   height: 250,
                   width: 250,
                   child: HomeImageAnimation(),
                 ),
+
+                // for text
                 Padding(
                   padding: const EdgeInsets.only(
                       top: 40, left: 30, right: 30, bottom: 15),
@@ -51,26 +58,26 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         SizedBox(
-                          width: constraints.maxWidth * 0.82,
+                          width: cw! * 0.82,
                           child: Greeting(
-                            fontSize: constraints.maxWidth * 0.04,
+                            fontSize: cw! * 0.04,
                           ),
                         ),
                         SizedBox(
-                          width: constraints.maxWidth * 0.82,
+                          width: cw! * 0.82,
                           child: Text(
                             'Hi there! My Name is ${AppText.name} and',
                             style: CustomTextStyle.salsa(
-                                fontSize: constraints.maxWidth * 0.04,
+                                fontSize: cw! * 0.04,
                                 color: CustomColors.white),
                           ),
                         ),
                         SizedBox(
-                          width: constraints.maxWidth * 0.82,
+                          width: cw! * 0.82,
                           child: Text(
                             'I\'m a ${AppText.work1}',
                             style: CustomTextStyle.salsa(
-                                fontSize: constraints.maxWidth * 0.0385,
+                                fontSize: cw! * 0.0385,
                                 color: CustomColors.white),
                           ),
                         ),
@@ -78,6 +85,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
+
                 SizedBox(
                     width: 180,
                     child: MaterialButtonWidget(
@@ -88,12 +96,14 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         );
-      } else {
-        //   for mobile screen size
+      }
+
+      ///******************/ for mobile screen size******************************
+      else {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 0.1),
           child: Container(
-            height: h! * 1,
+            height: mh! * 1,
             width: double.maxFinite,
             decoration: const BoxDecoration(
                 image: DecorationImage(
@@ -123,26 +133,26 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         SizedBox(
-                          width: constraints.maxWidth * 0.94,
+                          width: cw! * 0.94,
                           child: Greeting(
-                            fontSize: constraints.maxWidth * 0.044,
+                            fontSize: cw! * 0.044,
                           ),
                         ),
                         SizedBox(
-                          width: constraints.maxWidth * 0.94,
+                          width: cw! * 0.94,
                           child: Text(
                             'Hi there! My Name is ${AppText.name} and',
                             style: CustomTextStyle.salsa(
-                                fontSize: constraints.maxWidth * 0.04,
+                                fontSize: cw! * 0.04,
                                 color: CustomColors.white),
                           ),
                         ),
                         SizedBox(
-                          width: constraints.maxWidth * 0.94,
+                          width: cw! * 0.94,
                           child: Text(
                             'I\'m a ${AppText.work1}',
                             style: CustomTextStyle.salsa(
-                                fontSize: constraints.maxWidth * 0.04,
+                                fontSize: cw! * 0.04,
                                 color: CustomColors.white),
                           ),
                         ),
