@@ -8,7 +8,7 @@ class AppText {
       'problems. I am passionate about adopting new technologies and I have '
       'just started on this journey. I am motivated, keen to learn, improve '
       'and have the best skills to develop exciting digital experiences.';
-  static String phone = '70113 66405';
+  static String phone = '85060 36212';
   static String email = 'bhatiachirag2002@gmail.com';
   static String linkedIn = 'www.linkedin.com/in/bhatiachirag2002';
   static String schoolName = 'National Institute of Open Schooling';

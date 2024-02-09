@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/utils/colors.dart';
 
 class CustomTextStyle {
   static TextStyle caveat({required double fontSize, required Color color}) {
@@ -21,25 +20,6 @@ class CustomTextStyle {
     );
   }
 
-  static TextStyle salsa({required double fontSize, required Color color}) {
-    return TextStyle(
-        letterSpacing: 1.5,
-        fontFamily: 'Salsa',
-        fontSize: fontSize,
-        fontWeight: FontWeight.w400,
-        color: CustomColors.white);
-  }
-
-  static TextStyle ptSans({required double fontSize, required Color color}) {
-    return TextStyle(
-      fontFamily: 'PTSans',
-      fontSize: fontSize,
-      fontWeight: FontWeight.w800,
-      color: color,
-      letterSpacing: 1,
-    );
-  }
-
   static TextStyle monomaniacOne(
       {required double fontSize, required Color color}) {
     return TextStyle(
@@ -48,5 +28,17 @@ class CustomTextStyle {
       fontWeight: FontWeight.bold,
       color: color,
     );
+  }
+
+  static TextStyle ubuntuMedium(
+      {required double fontSize,
+      required Color color,
+      FontWeight fontWeight = FontWeight.w400}) {
+    return TextStyle(
+        letterSpacing: 1.5,
+        fontFamily: 'Ubuntu-Medium',
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        color: color);
   }
 }

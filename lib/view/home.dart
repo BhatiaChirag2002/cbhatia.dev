@@ -6,7 +6,6 @@ import 'package:portfolio/utils/size.dart';
 import 'package:portfolio/utils/text_style.dart';
 import 'package:portfolio/widgets/greating.dart';
 import 'package:portfolio/widgets/image_animation.dart';
-import 'package:portfolio/widgets/material_button.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,16 +18,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
-      mh = MediaQuery.sizeOf(context).height;
-      mw = MediaQuery.sizeOf(context).width;
-      cw = constraints.maxWidth;
-
       ///******************/ for Desktop screen size******************************
-      if (cw! >= minDesktopWidth) {
+      if (constraints.maxWidth >= Sizes.minDesktopWidth) {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 0.1),
           child: Container(
-            height: 606.0,
+            height: 599.0,
             width: double.maxFinite,
             decoration: const BoxDecoration(
                 image: DecorationImage(
@@ -58,26 +53,32 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         SizedBox(
-                          width: cw! * 0.82,
+                          width:
+                              Sizes.mediaWidth(context: context, width: 0.82),
                           child: Greeting(
-                            fontSize: cw! * 0.04,
+                            fontSize: Sizes.mediaWidth(
+                                context: context, width: 0.035),
                           ),
                         ),
                         SizedBox(
-                          width: cw! * 0.82,
+                          width:
+                              Sizes.mediaWidth(context: context, width: 0.82),
                           child: Text(
                             'Hi there! My Name is ${AppText.name} and',
-                            style: CustomTextStyle.salsa(
-                                fontSize: cw! * 0.04,
+                            style: CustomTextStyle.ubuntuMedium(
+                                fontSize: Sizes.mediaWidth(
+                                    context: context, width: 0.035),
                                 color: CustomColors.white),
                           ),
                         ),
                         SizedBox(
-                          width: cw! * 0.82,
+                          width:
+                              Sizes.mediaWidth(context: context, width: 0.82),
                           child: Text(
                             'I\'m a ${AppText.work1}',
-                            style: CustomTextStyle.salsa(
-                                fontSize: cw! * 0.0385,
+                            style: CustomTextStyle.ubuntuMedium(
+                                fontSize: Sizes.mediaWidth(
+                                    context: context, width: 0.0385),
                                 color: CustomColors.white),
                           ),
                         ),
@@ -85,13 +86,6 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-
-                SizedBox(
-                    width: 180,
-                    child: MaterialButtonWidget(
-                      onTap: () {},
-                      title: 'Download Cv',
-                    ))
               ],
             ),
           ),
@@ -103,7 +97,7 @@ class _HomePageState extends State<HomePage> {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 0.1),
           child: Container(
-            height: mh! * 1,
+            height: Sizes.mediaHeight(context: context, height: 0.925),
             width: double.maxFinite,
             decoration: const BoxDecoration(
                 image: DecorationImage(
@@ -133,26 +127,32 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         SizedBox(
-                          width: cw! * 0.94,
+                          width:
+                              Sizes.mediaWidth(context: context, width: 0.94),
                           child: Greeting(
-                            fontSize: cw! * 0.044,
+                            fontSize: Sizes.mediaWidth(
+                                context: context, width: 0.044),
                           ),
                         ),
                         SizedBox(
-                          width: cw! * 0.94,
+                          width:
+                              Sizes.mediaWidth(context: context, width: 0.94),
                           child: Text(
                             'Hi there! My Name is ${AppText.name} and',
-                            style: CustomTextStyle.salsa(
-                                fontSize: cw! * 0.04,
+                            style: CustomTextStyle.ubuntuMedium(
+                                fontSize: Sizes.mediaWidth(
+                                    context: context, width: 0.04),
                                 color: CustomColors.white),
                           ),
                         ),
                         SizedBox(
-                          width: cw! * 0.94,
+                          width:
+                              Sizes.mediaWidth(context: context, width: 0.94),
                           child: Text(
                             'I\'m a ${AppText.work1}',
-                            style: CustomTextStyle.salsa(
-                                fontSize: cw! * 0.04,
+                            style: CustomTextStyle.ubuntuMedium(
+                                fontSize: Sizes.mediaWidth(
+                                    context: context, width: 0.04),
                                 color: CustomColors.white),
                           ),
                         ),
@@ -160,12 +160,6 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                SizedBox(
-                    width: 180,
-                    child: MaterialButtonWidget(
-                      onTap: () {},
-                      title: 'Download Cv',
-                    ))
               ],
             ),
           ),

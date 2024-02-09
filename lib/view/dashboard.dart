@@ -4,7 +4,9 @@ import 'package:portfolio/utils/size.dart';
 import 'package:portfolio/utils/text_style.dart';
 import 'package:portfolio/view/about.dart';
 import 'package:portfolio/view/contact.dart';
+import 'package:portfolio/view/education.dart';
 import 'package:portfolio/view/home.dart';
+import 'package:portfolio/view/projects.dart';
 import 'package:portfolio/widgets/dashboard_button.dart';
 import 'package:portfolio/widgets/logo.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
@@ -21,26 +23,23 @@ class _DashboardState extends State<Dashboard> {
   final ItemScrollController itemScrollController = ItemScrollController();
   final ItemPositionsListener itemPositionsListener =
       ItemPositionsListener.create();
-
   @override
   Widget build(BuildContext context) {
-    mh = MediaQuery.sizeOf(context).height;
-    mw = MediaQuery.sizeOf(context).width;
     return LayoutBuilder(builder: (context, constraints) {
       return Scaffold(
         key: scaffoldkey,
         endDrawer:
-            constraints.maxWidth >= minDesktopWidth ? null : mobileDrawer(),
+            constraints.maxWidth >= Sizes.minDesktopWidth ? null : mobileDrawer(),
         backgroundColor: CustomColors.black,
         body: Column(
           children: [
-            if (constraints.maxWidth >= minDesktopWidth)
+            if (constraints.maxWidth >= Sizes.minDesktopWidth)
               desktop()
             else
               mobile(),
             Expanded(
               child: ScrollablePositionedList.builder(
-                itemCount: 3,
+                itemCount: 5,
                 itemScrollController: itemScrollController,
                 itemPositionsListener: itemPositionsListener,
                 itemBuilder: (context, index) {
@@ -58,7 +57,7 @@ class _DashboardState extends State<Dashboard> {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 20),
       width: double.maxFinite,
-      height: mh! * 0.07,
+      height: Sizes.mediaHeight(context: context, height: 0.07),
       child: Row(
         children: [
           LogoAndName(
@@ -69,7 +68,9 @@ class _DashboardState extends State<Dashboard> {
           const Spacer(),
           dashboardButton('Home', 0),
           dashboardButton('About', 1),
-          dashboardButton('Contact', 2),
+          dashboardButton('Education', 2),
+          dashboardButton('Projects', 3),
+          dashboardButton('Contact', 4),
         ],
       ),
     );
@@ -79,7 +80,7 @@ class _DashboardState extends State<Dashboard> {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 10),
       width: double.maxFinite,
-      height: mh! * 0.07,
+      height: Sizes.mediaHeight(context: context, height: 0.07),
       child: Row(
         children: [
           LogoAndName(
@@ -119,7 +120,15 @@ class _DashboardState extends State<Dashboard> {
         const SizedBox(
           height: 22.0,
         ),
-        dashboardButton('Contact', 2),
+        dashboardButton('Education', 2),
+        const SizedBox(
+          height: 22.0,
+        ),
+        dashboardButton('Projects', 3),
+        const SizedBox(
+          height: 22.0,
+        ),
+        dashboardButton('Contact', 4),
         const SizedBox(
           height: 22.0,
         ),
@@ -166,9 +175,15 @@ class _DashboardState extends State<Dashboard> {
       case 1:
         return const AboutPage();
       case 2:
-        return ContactPage(onTap: (){
-          itemScrollController.jumpTo(index: 0);
-        },);
+        return const EducationPage();
+      case 3:
+        return const ProjectsPage();
+      case 4:
+        return ContactPage(
+          onTap: () {
+            itemScrollController.jumpTo(index: 0);
+          },
+        );
 
       default:
         return const HomePage();

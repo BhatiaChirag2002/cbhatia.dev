@@ -1,45 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/utils/colors.dart';
+import 'package:portfolio/utils/size.dart';
 import 'package:portfolio/utils/text_style.dart';
 
-class SkillsContainer extends StatelessWidget {
-  final String image;
+class Skills extends StatelessWidget {
+  final double width;
+  final String category;
   final String name;
-  final double radius;
-  final double imageHeight;
-  final double sizeBoxHeight;
   final double fontSize;
-  const SkillsContainer(
+  const Skills(
       {super.key,
-      required this.image,
-      required this.name,
-      required this.radius,
-      required this.imageHeight,
       required this.fontSize,
-      required this.sizeBoxHeight});
+      required this.category,
+      required this.name, required this.width});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: sizeBoxHeight,
-      width: sizeBoxHeight,
-      child: Column(children: [
-        CircleAvatar(
-          radius: radius,
-          backgroundColor: CustomColors.white,
-          child: Image.asset(
-            'assets/skills/$image.png',
-            height: imageHeight,
-            width: imageHeight,
-          ),
+      width: Sizes.mediaWidth(context: context, width: width),
+      child: Padding(
+        padding:
+            EdgeInsets.all(Sizes.mediaWidth(context: context, width: 0.01)),
+        child: Row(
+          children: [
+            CircleAvatar(
+                backgroundColor: CustomColors.white,
+                radius: Sizes.mediaWidth(
+                  context: context,
+                  width: 0.004,
+                )),
+            Text(
+              ' $category: ',
+              style: CustomTextStyle.ubuntuMedium(
+                  fontSize: fontSize,
+                  color: CustomColors.white,
+                  fontWeight: FontWeight.w700),
+            ),
+            Text(
+              name,
+              style: CustomTextStyle.ubuntuMedium(
+                  fontSize: fontSize, color: CustomColors.white),
+            )
+          ],
         ),
-        const SizedBox(
-          height: 4,
-        ),
-        Text(name,
-            style: CustomTextStyle.ptSans(
-                fontSize: fontSize, color: CustomColors.white)),
-      ]),
+      ),
     );
   }
 }

@@ -16,13 +16,8 @@ class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
-      mh = MediaQuery.sizeOf(context).height;
-      mw = MediaQuery.sizeOf(context).width;
-      ch = constraints.maxHeight;
-      cw = constraints.maxWidth;
-
       ///******************/ for Desktop screen size******************************
-      if (constraints.maxWidth >= minDesktopWidth) {
+      if (constraints.maxWidth >= Sizes.minDesktopWidth) {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 0.1),
           child: SizedBox(
@@ -31,26 +26,29 @@ class _AboutPageState extends State<AboutPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
-                      width: cw! * 0.25,
+                      width: Sizes.mediaWidth(context: context, width: 0.25),
                       child: Image.asset(
                         'assets/images/photo2.png',
-                        width: cw! * 0.2,
-                        height: cw! * 0.2,
+                        width: Sizes.mediaWidth(context: context, width: 0.2),
+                        height: Sizes.mediaWidth(context: context, width: 0.2),
                       )),
                   SizedBox(
-                    width: cw! * 0.7,
+                    width: Sizes.mediaWidth(context: context, width: 0.7),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         ScreenNameTitle(
-                          fontSize: cw! * 0.038,
-                          textOne: 'Contact',
+                          fontSize:
+                              Sizes.mediaWidth(context: context, width: 0.038),
+                          textOne: 'About',
                           textTwo: 'Me',
                         ),
                         Text(
                           AppText.about,
-                          style: CustomTextStyle.ptSans(
-                              fontSize: cw! * 0.017, color: Colors.white),
+                          style: CustomTextStyle.ubuntuMedium(
+                              fontSize: Sizes.mediaWidth(
+                                  context: context, width: 0.017),
+                              color: Colors.white),
                         ),
                         Container(
                           margin: const EdgeInsets.symmetric(vertical: 15),
@@ -60,83 +58,126 @@ class _AboutPageState extends State<AboutPage> {
                           child: Column(
                             children: [
                               ScreenNameTitle(
-                                fontSize: cw! * 0.022,
+                                fontSize: Sizes.mediaWidth(
+                                    context: context, width: 0.022),
                                 textOne: 'My',
                                 textTwo: 'Skills',
                               ),
                               Row(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  SkillsContainer(
-                                    image: 'flutter',
-                                    name: 'Flutter',
-                                    imageHeight: cw! * 0.035,
-                                    sizeBoxHeight: cw! * 0.1,
-                                    radius: cw! * 0.025,
-                                    fontSize: cw! * 0.014,
-                                  ),
-                                  SkillsContainer(
-                                    image: 'dart',
+                                  Skills(
+                                    width: 0.34,
+                                    fontSize: Sizes.mediaWidth(
+                                      context: context,
+                                      width: 0.011,
+                                    ),
+                                    category: 'Programing Language',
                                     name: 'Dart',
-                                    imageHeight: cw! * 0.035,
-                                    sizeBoxHeight: cw! * 0.1,
-                                    radius: cw! * 0.025,
-                                    fontSize: cw! * 0.014,
                                   ),
-                                  SkillsContainer(
-                                    image: 'getx',
-                                    name: 'Getx',
-                                    imageHeight: cw! * 0.035,
-                                    sizeBoxHeight: cw! * 0.1,
-                                    radius: cw! * 0.025,
-                                    fontSize: cw! * 0.014,
-                                  ),
-                                  SkillsContainer(
-                                    image: 'firebase',
-                                    name: 'Firebase',
-                                    imageHeight: cw! * 0.035,
-                                    sizeBoxHeight: cw! * 0.1,
-                                    radius: cw! * 0.025,
-                                    fontSize: cw! * 0.014,
+                                  Skills(
+                                    width: 0.34,
+                                    fontSize: Sizes.mediaWidth(
+                                      context: context,
+                                      width: 0.011,
+                                    ),
+                                    category: 'Mobile App Development',
+                                    name: 'Flutter',
                                   ),
                                 ],
                               ),
                               Row(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  SkillsContainer(
-                                    image: 'restfull_api',
+                                  Skills(
+                                    width: 0.34,
+                                    fontSize: Sizes.mediaWidth(
+                                      context: context,
+                                      width: 0.011,
+                                    ),
+                                    category: 'State Management',
+                                    name: 'GetX',
+                                  ),
+                                  Skills(
+                                    width: 0.34,
+                                    fontSize: Sizes.mediaWidth(
+                                      context: context,
+                                      width: 0.011,
+                                    ),
+                                    category: 'Database',
+                                    name: 'Firebase',
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Skills(
+                                    width: 0.34,
+                                    fontSize: Sizes.mediaWidth(
+                                      context: context,
+                                      width: 0.011,
+                                    ),
+                                    category: 'API Integration',
                                     name: 'RESTful APIs',
-                                    imageHeight: cw! * 0.035,
-                                    sizeBoxHeight: cw! * 0.1,
-                                    radius: cw! * 0.025,
-                                    fontSize: cw! * 0.014,
                                   ),
-                                  SkillsContainer(
-                                    image: 'figma',
+                                  Skills(
+                                    width: 0.34,
+                                    fontSize: Sizes.mediaWidth(
+                                        context: context, width: 0.011),
+                                    category: 'IDEs',
+                                    name: 'Android Studio, Visual Studio Code',
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Skills(
+                                    width: 0.34,
+                                    fontSize: Sizes.mediaWidth(
+                                      context: context,
+                                      width: 0.011,
+                                    ),
+                                    category: 'UI/UX Design',
                                     name: 'Figma',
-                                    imageHeight: cw! * 0.035,
-                                    sizeBoxHeight: cw! * 0.1,
-                                    radius: cw! * 0.025,
-                                    fontSize: cw! * 0.014,
                                   ),
-                                  SkillsContainer(
-                                    image: 'git',
+                                  Skills(
+                                    width: 0.34,
+                                    fontSize: Sizes.mediaWidth(
+                                      context: context,
+                                      width: 0.011,
+                                    ),
+                                    category: 'Version Control',
                                     name: 'Git',
-                                    imageHeight: cw! * 0.035,
-                                    sizeBoxHeight: cw! * 0.1,
-                                    radius: cw! * 0.025,
-                                    fontSize: cw! * 0.014,
                                   ),
-                                  SkillsContainer(
-                                    image: 'github',
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Skills(
+                                    width: 0.34,
+                                    fontSize: Sizes.mediaWidth(
+                                      context: context,
+                                      width: 0.011,
+                                    ),
+                                    category: 'Collaboration Tool',
                                     name: 'GitHub',
-                                    imageHeight: cw! * 0.035,
-                                    sizeBoxHeight: cw! * 0.1,
-                                    radius: cw! * 0.025,
-                                    fontSize: cw! * 0.014,
+                                  ),
+                                  Skills(
+                                    width: 0.34,
+                                    fontSize: Sizes.mediaWidth(
+                                      context: context,
+                                      width: 0.011,
+                                    ),
+                                    category: 'Automation',
+                                    name: 'GitHub Action',
                                   ),
                                 ],
                               )
@@ -161,141 +202,132 @@ class _AboutPageState extends State<AboutPage> {
             child: SizedBox(
                 width: double.maxFinite,
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                        width: cw! * 1,
-                        child: Center(
-                          child: Image.asset(
-                            'assets/images/photo2.png',
-                            width: cw! * 0.35,
-                            height: cw! * 0.35,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      SizedBox(
+                          width: Sizes.mediaWidth(context: context, width: 1),
+                          child: Center(
+                            child: Image.asset(
+                              'assets/images/photo2.png',
+                              width: Sizes.mediaWidth(
+                                  context: context, width: 0.35),
+                              height: Sizes.mediaWidth(
+                                  context: context, width: 0.35),
+                            ),
+                          )),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ScreenNameTitle(
+                            fontSize:
+                                Sizes.mediaWidth(context: context, width: 0.07),
+                            textOne: 'About',
+                            textTwo: 'Me',
                           ),
-                        )),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        ScreenNameTitle(
-                          fontSize: cw! * 0.06,
-                          textOne: 'Contact',
-                          textTwo: 'Me',
-                        ),
-                        Text(
-                          AppText.about,
-                          style: CustomTextStyle.ptSans(
-                              fontSize: cw! * 0.034, color: Colors.white),
-                        ),
-                        Container(
-                          margin: const EdgeInsets.symmetric(vertical: 10),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Colors.white24),
-                          child: Column(
-                            children: [
-                              ScreenNameTitle(
-                                fontSize: cw! * 0.045,
-                                textOne: 'My',
-                                textTwo: 'Skills',
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  SkillsContainer(
-                                    image: 'flutter',
-                                    name: 'Flutter',
-                                    imageHeight: cw! * 0.055,
-                                    sizeBoxHeight: cw! * 0.2,
-                                    radius: cw! * 0.045,
-                                    fontSize: cw! * 0.025,
-                                  ),
-                                  SkillsContainer(
-                                    image: 'dart',
-                                    name: 'Dart',
-                                    imageHeight: cw! * 0.055,
-                                    sizeBoxHeight: cw! * 0.2,
-                                    radius: cw! * 0.045,
-                                    fontSize: cw! * 0.025,
-                                  ),
-                                  SkillsContainer(
-                                    image: 'getx',
-                                    name: 'Getx',
-                                    imageHeight: cw! * 0.055,
-                                    sizeBoxHeight: cw! * 0.2,
-                                    radius: cw! * 0.045,
-                                    fontSize: cw! * 0.025,
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  SkillsContainer(
-                                    image: 'firebase',
-                                    name: 'Firebase',
-                                    imageHeight: cw! * 0.055,
-                                    sizeBoxHeight: cw! * 0.2,
-                                    radius: cw! * 0.045,
-                                    fontSize: cw! * 0.025,
-                                  ),
-                                  SkillsContainer(
-                                    image: 'restfull_api',
-                                    name: 'RESTful APIs',
-                                    imageHeight: cw! * 0.055,
-                                    sizeBoxHeight: cw! * 0.2,
-                                    radius: cw! * 0.045,
-                                    fontSize: cw! * 0.025,
-                                  ),
-                                  SkillsContainer(
-                                    image: 'figma',
-                                    name: 'Figma',
-                                    imageHeight: cw! * 0.055,
-                                    sizeBoxHeight: cw! * 0.2,
-                                    radius: cw! * 0.045,
-                                    fontSize: cw! * 0.025,
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  SkillsContainer(
-                                    image: 'git',
-                                    name: 'Git',
-                                    imageHeight: cw! * 0.055,
-                                    sizeBoxHeight: cw! * 0.2,
-                                    radius: cw! * 0.045,
-                                    fontSize: cw! * 0.025,
-                                  ),
-                                  SkillsContainer(
-                                    image: 'github',
-                                    name: 'GitHub',
-                                    imageHeight: cw! * 0.055,
-                                    sizeBoxHeight: cw! * 0.2,
-                                    radius: cw! * 0.045,
-                                    fontSize: cw! * 0.025,
-                                  ),
-                                  SizedBox(
-                                    height: cw! * 0.2,
-                                    width: cw! * 0.2,
-                                  ),
-                                ],
-                              ),
-                            ],
+                          Text(
+                            AppText.about,
+                            style: CustomTextStyle.ubuntuMedium(
+                                fontSize: Sizes.mediaWidth(
+                                    context: context, width: 0.04),
+                                color: Colors.white),
                           ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    )
-                  ],
-                )));
+                          Container(
+                              width: Sizes.mediaWidth(
+                                  context: context, width: 0.9),
+                              margin: const EdgeInsets.symmetric(vertical: 5),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: Colors.white24),
+                              child: Column(children: [
+                                ScreenNameTitle(
+                                  fontSize: Sizes.mediaWidth(
+                                      context: context, width: 0.045),
+                                  textOne: 'My',
+                                  textTwo: 'Skills',
+                                ),
+                                Skills(
+                                  width: 0.85,
+                                  fontSize: Sizes.mediaWidth(
+                                      context: context, width: 0.032),
+                                  category: 'Programing Language',
+                                  name: 'Dart',
+                                ),
+                                Skills(
+                                  width: 0.85,
+                                  fontSize: Sizes.mediaWidth(
+                                      context: context, width: 0.032),
+                                  category: 'Mobile App Development',
+                                  name: 'Flutter',
+                                ),
+                                Skills(
+                                  width: 0.85,
+                                  fontSize: Sizes.mediaWidth(
+                                      context: context, width: 0.032),
+                                  category: 'State Management',
+                                  name: 'GetX',
+                                ),
+                                Skills(
+                                  width: 0.85,
+                                  fontSize: Sizes.mediaWidth(
+                                      context: context, width: 0.032),
+                                  category: 'Database',
+                                  name: 'Firebase',
+                                ),
+                                Skills(
+                                  width: 0.85,
+                                  fontSize: Sizes.mediaWidth(
+                                      context: context, width: 0.032),
+                                  category: 'API Integration',
+                                  name: 'RESTful APIs',
+                                ),
+                                Skills(
+                                  width: 0.85,
+                                  fontSize: Sizes.mediaWidth(
+                                      context: context, width: 0.032),
+                                  category: 'IDEs',
+                                  name: 'Android Studio, Visual Studio Code',
+                                ),
+                                Skills(
+                                  width: 0.85,
+                                  fontSize: Sizes.mediaWidth(
+                                      context: context, width: 0.032),
+                                  category: 'UI/UX Design',
+                                  name: 'Figma',
+                                ),
+                                Skills(
+                                  width: 0.85,
+                                  fontSize: Sizes.mediaWidth(
+                                      context: context, width: 0.032),
+                                  category: 'Version Control',
+                                  name: 'Git',
+                                ),
+                                Skills(
+                                  width: 0.85,
+                                  fontSize: Sizes.mediaWidth(
+                                      context: context, width: 0.032),
+                                  category: 'Collaboration Tool',
+                                  name: 'GitHub',
+                                ),
+                                Skills(
+                                  width: 0.85,
+                                  fontSize: Sizes.mediaWidth(
+                                      context: context, width: 0.032),
+                                  category: 'Automation',
+                                  name: 'GitHub Action',
+                                ),
+                              ])),
+                          const SizedBox(
+                            height: 10,
+                          )
+                        ],
+                      )
+                    ])));
       }
     });
   }

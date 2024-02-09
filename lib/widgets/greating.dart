@@ -30,12 +30,12 @@ class Greeting extends StatelessWidget {
       children: [
         Text(
           greeting(),
-          style: CustomTextStyle.salsa(
+          style: CustomTextStyle.ubuntuMedium(
               fontSize: fontSize, color: CustomColors.white),
         ),
         SizedBox(
-            height: fontSize + mw! * 0.01,
-            width: fontSize + mw! * 0.02,
+            height: fontSize + Sizes.mediaWidth(context: context, width:  0.01) ,
+            width: fontSize + Sizes.mediaWidth(context: context, width: 0.02),
             child: Lottie.asset('assets/jsons/hi.json')),
       ],
     );

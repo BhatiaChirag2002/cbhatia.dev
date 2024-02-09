@@ -14,26 +14,29 @@ class MaterialButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
-      child: MaterialButton(
-        onPressed: onTap,
-        color: CustomColors.yellow,
-        padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 18),
-        shape: OutlineInputBorder(borderRadius: BorderRadius.circular(40)),
-        child: Row(
-          children: [
-            Icon(
-              CupertinoIcons.doc_text_fill,
-              size: 25,
-              color: CustomColors.black,
-            ),
-            Text(
-              title,
-              style: CustomTextStyle.diphylleia(
-                  fontSize: 19.0, color: CustomColors.black),
-            ),
-          ],
+    return SizedBox(
+      width: 225,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+        child: MaterialButton(
+          onPressed: onTap,
+          color: CustomColors.yellow,
+          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 18),
+          shape: OutlineInputBorder(borderRadius: BorderRadius.circular(40)),
+          child: Row(
+            children: [
+              Icon(
+                CupertinoIcons.doc_text_fill,
+                size: 25,
+                color: CustomColors.black,
+              ),
+              Text(
+                title,
+                style: CustomTextStyle.diphylleia(
+                    fontSize: 19.0, color: CustomColors.black),
+              ),
+            ],
+          ),
         ),
       ),
     );
